@@ -4,7 +4,6 @@ const alertMsg = document.querySelector('#alertMsg')
 
 inputForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    // console.log("hi");
 
     alertMsg.style.display = "block"
     alertMsg.className = 'alert alert-primary my-3'
