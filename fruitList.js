@@ -8,9 +8,12 @@ function getFruitsData() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             createFruitList(data)
             deleteItemBtn()
+        })
+        .catch(function (error) {
+            console.log("Error", error);
+            unorderedList.innerHTML = 'Oops, An error occured while fetching the data'
         })
 
 }
@@ -23,7 +26,7 @@ function createFruitList(data) {
         const liElement = document.createElement('li');
         liElement.className = 'list-group-item';
         liElement.innerHTML = `${data[i].name} - Quantity: ${data[i].quantity} - Category: ${data[i].category} <button id="deleteItem" data-id="${data[i]._id}"  class="btn btn-danger d-flex float-end">Delete</button>`
-        unorderedList.appendChild(liElement)
+        unorderedList.appendChild(liElement);
 
     }
 }
@@ -51,18 +54,13 @@ function deleteItemBtn() {
                     unorderedList.innerHTML = '';
                     getFruitsData()
                 })
+                .catch(function (error) {
+                    console.log("Error", error);
+                    unorderedList.textContent = 'An error occured while deleting the data...'
+                })
 
         })
     }
 
 
-    /* fetch(apiUrl, {
-        method: "DELETE"
-    })
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (data) {
-            console.log(data);
-        }) */
 }
