@@ -11,6 +11,12 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
         defer>
     </script>
+    <script src="script.js" defer></script>
+    <style>
+        #alertMsg {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,9 +46,29 @@
     </header>
 
     <main class="container">
-        <form id="inputForm">
-            <h1>Add Fruits</h1>
 
+        <h1 class="my-4">Add Fruits</h1>
+
+        <div class="alert alert-success my-3" id='alertMsg' role="alert">
+            Fruit Added Successfully..
+        </div>
+
+        <form id="inputForm">
+
+
+            <label for="fruitNameInput" class="from-label">Fruit Name:</label>
+            <input type="text" id="fruitNameInput" class="form-control" required><br>
+
+            <label for="quantityInput">Quantity:</label>
+            <input type="number" id="quantityInput" class="form-control" required><br>
+
+            <label for="" class="form-label">Category:</label>
+            <select id="categoryInput" class="form-control">
+                <option value="Perishable">Perishable</option>
+                <option value="Non-Perishable">Non-Perishable</option>
+            </select><br>
+
+            <button type="submit" class="btn btn-primary">Add Fruit</button>
         </form>
     </main>
 </body>
